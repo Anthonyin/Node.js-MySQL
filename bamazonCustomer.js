@@ -68,7 +68,7 @@ function start() {
       .then(function(ans) {
         var toBuy = ans.id - 1;
         var howManytoBuy = parseFloat(ans.QTY);
-        var total = parseFloat((res[toBuy] * howManytoBuy).toFixed(2));
+        var total = parseFloat((res[toBuy].price * howManytoBuy).toFixed(2));
         if (res[toBuy].stock_quantity >= howManytoBuy) {
           connection.query(
             'UPDATE product SET ? WHERE ?',
